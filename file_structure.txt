@@ -1,0 +1,7 @@
+fake-news-detector/
+├── data/
+│   ├── raw/          # Kaggle csvs and raw API pulls go here, untouched
+│   └── processed/    # cleaned/combined datasets go here
+├── notebooks/        # exploration and experiments
+├── src/              # reusable scripts (preprocessing, training, etc.)
+└── models/           # saved model files
