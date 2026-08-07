@@ -2,7 +2,9 @@ import os
 import requests
 import pandas as pd
 from dotenv import load_dotenv
+from pathlib import Path
 
+script_dir = Path(__file__).parent
 load_dotenv()
 API_KEY = os.getenv("NEWS_API_KEY")
 
@@ -36,6 +38,7 @@ if __name__ == "__main__":
         })
 
     df = pd.DataFrame(rows)
-    out_path = "data/raw/news_api_real.csv"
-    df.to_csv(out_path, index=False)
-    print(f"Saved {len(df)} articles to {out_path}")
+    output_path = script_dir.parent / "data" / "raw" / "news_api_real.csv"
+    
+    df.to_csv(output_path, index=False)
+    print(f"Saved {len(df)} articles to {output_path}")
