@@ -1,8 +1,12 @@
 import pandas as pd
+from pathlib import Path
 
+script_dir = Path(__file__).parent
 def load_kaggle_data():
-    fake = pd.read_csv("data/raw/Fake.csv")
-    real = pd.read_csv("data/raw/True.csv")
+    fake_path = script_dir.parent / "data" / "raw" / "Fake.csv"
+    real_path = script_dir.parent /"data" / "raw" / "True.csv"
+    fake = pd.read_csv(fake_path)
+    real = pd.read_csv(real_path)
     fake["label"] = 0
     real["label"] = 1  
     df = pd.concat([fake, real], ignore_index=True)
@@ -26,11 +30,11 @@ if __name__=="__main__":
 
     print("\nShape after cleaning:", df.shape)
 
-    out_path = "data/processed/kaggle_combined.csv"
-    df.to_csv(out_path, index=False)
-    print(f"Saved to {out_path}")
+    output_path = script_dir.parent / "data" / "processed" / "kaggle_combined.csv"
+    df.to_csv(output_path, index=False)
+    print(f"Saved to {output_path}")
 
-    
+
 
 
 
