@@ -2,15 +2,11 @@ import re
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from pathlib import Path
+from text_utils import clean_text
 
 script_dir = Path(__file__).parent
 
-def clean_text(text):
-    text = text.lower()
-    text = re.sub(r"http\S+|www\S+", " ", text) # removes URLs
-    text = re.sub(r"[^a-z\s]", " ", text) # removed punctuation and numbers
-    text = re.sub(r"\s+", " ", text).strip()       # collapse whitespace
-    return text
+
 
 if __name__ == "__main__":
     combined_dataset = script_dir.parent / "data" / "processed" / "kaggle_combined.csv"
