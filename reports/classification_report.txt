@@ -1,9 +1,9 @@
-Test accuracy: 0.9919
+Test accuracy: 0.9857
 
               precision    recall  f1-score   support
 
-        fake       0.99      0.99      0.99      3581
-        real       0.99      1.00      0.99      4239
+        fake       0.99      0.98      0.98      3581
+        real       0.98      0.99      0.99      4239
 
     accuracy                           0.99      7820
    macro avg       0.99      0.99      0.99      7820
